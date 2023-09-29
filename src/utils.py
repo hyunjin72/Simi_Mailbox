@@ -45,11 +45,11 @@ def arg_parse():
     parser.add_argument('--ece-norm', type=float, default=1.0, help='norm for ece')
     parser.add_argument('--config', action='store_true', default=False)
     
-    parser.add_argument('--n_bins', type=int, default=15, help='#(confidence intervals)')
-    parser.add_argument('--n_simi_bins', type=int, default=10, help='#(quantile bins)')
+    parser.add_argument('--n_bins', type=int, default=10, help='#(confidence intervals)')
+    parser.add_argument('--n_simi_bins', type=int, default=1, help='#(quantile bins)')
     
     parser.add_argument('--cal_lr', type=float, default=0.01, help='Learning rate for calibration phase')
-    parser.add_argument('--lamb', type=float, default=1, help='Regularization coef. for LCC loss')
+    parser.add_argument('--lamb', type=float, default=50, help='Regularization coef. for LCC loss')
     
 
     args = parser.parse_args()
