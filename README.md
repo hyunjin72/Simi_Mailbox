@@ -5,7 +5,6 @@ sudo apt-get install python3-venv
 python3 -m venv myvenv
 source myvenv/bin/activate
 ```
-
 - We followed the same experimental setting with 
 - "Hsu et al., "What Makes Graph Neural Networks Miscalibrated?" (NeurIPS'22)
 
