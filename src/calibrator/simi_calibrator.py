@@ -101,10 +101,14 @@ class Simi_Mailbox(nn.Module):
         torch.cuda.empty_cache()
         
         avg_sim = torch_sparse.sum(tmp_adj, 1) * deg_inv
-        # Perform Min-Max scaling on avg_sim
+        # Perform Min-Max scaling
         min_avg_sim = torch.min(avg_sim)
         max_avg_sim = torch.max(avg_sim)
         avg_sim = (avg_sim - min_avg_sim) / (max_avg_sim - min_avg_sim)
+
+        min_conf = torch.min(confs)
+        max_conf = torch.max(confs)
+        confs = (confs - min_conf) / (max_conf - min_conf)
         
         mailbox = torch.stack((confs, avg_sim), 1)
         
