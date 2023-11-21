@@ -106,6 +106,10 @@ class Simi_Mailbox(nn.Module):
         max_avg_sim = torch.max(avg_sim)
         avg_sim = (avg_sim - min_avg_sim) / (max_avg_sim - min_avg_sim)
         
+        min_conf = torch.min(confs)
+        max_conf = torch.max(confs)
+        confs = (confs - min_conf) / (max_conf - min_conf)
+        
         mailbox = torch.stack((confs, avg_sim), 1)
         
         kmeans = KMeans(n_clusters=self.args.n_simi_bins, random_state=0, 
